@@ -15,21 +15,21 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "antd": "^5.17.3",
+    "electron-updater": "^6.1.8",
     "nodemon": "^3.1.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1"
   },
-  "build": {
-    "appId": "calculator"
-  },
   "scripts": {
     "build": "craco build",
+    "dist": "electron-builder",
     "start:electron": "electron .",
     "start": "react-scripts start",
-    "watch": "nodemon --exec electron .",
     "pack": "electron-builder --dir",
-    "dist": "electron-builder"
+    "watch": "nodemon --exec electron .",
+    "dist:all": "npm run build && electron-builder -p always",
+    "package": "npm run build && electron-builder -p always"
   },
   "eslintConfig": {
     "extends": [
@@ -51,8 +51,8 @@
   },
   "devDependencies": {
     "electron": "^30.0.8",
-    "electron-is-dev": "^3.0.1",
     "electron-builder": "^24.13.3",
+    "electron-is-dev": "^3.0.1",
     "electron-window-state": "^5.0.3",
     "webpack-node-externals": "^3.0.0"
   }
